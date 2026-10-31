@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<article class="law">
+  <p>
+    <a href="{{ '/' | relative_url }}">← Legal register</a>
+  </p>
+
+  <p>{{ page.type | escape }} No. {{ page.number | escape }}</p>
+
+  <h2>{{ page.title | escape }}</h2>
+
+  <dl class="law-details">
+    <dt>Issuing authority</dt>
+    <dd>{{ page.authority | escape }}</dd>
+
+    <dt>Published</dt>
+    <dd>{{ page.published | escape }}</dd>
+
+    <dt>Effective from</dt>
+    <dd>{{ page.effective | escape }}</dd>
+  </dl>
+
+  <div class="law-text">
+    {{ content }}
+  </div>
+</article>

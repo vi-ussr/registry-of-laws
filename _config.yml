@@ -1,2 +1,14 @@
 title: Register of Laws
 baseurl: ""
+
+collections:
+  laws:
+    output: true
+    permalink: /laws/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: laws
+    values:
+      layout: law
