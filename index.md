@@ -1,6 +1,8 @@
 ---
-layout: null
+layout: default
+title: Legal register
 ---
-# Register of Laws
+
+## Chronological Register
 
 The register is being prepared.
