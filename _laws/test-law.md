@@ -4,7 +4,7 @@ title: "Temporary Placeholder for Testing"
 number: "001/2026"
 type: Decree
 authority: Presidium
-subject: State administration
+subject: Research & Development Testing
 adopted: "2026-10-31"
 published: "2026-10-31"
 effective: "2026-10-31"

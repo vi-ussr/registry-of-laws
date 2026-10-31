@@ -114,10 +114,12 @@ footer p:last-child {
 
 .law-text {
   max-width: 800px;
+  display: inline;
 }
 
 .law-text h2 {
   scroll-margin-top: 24px;
+  text-align: center;
 }
 
 @media (max-width: 600px) {

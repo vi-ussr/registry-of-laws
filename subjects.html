@@ -1,0 +1,27 @@
+---
+layout: default
+title: Subject index
+permalink: /subjects/
+---
+
+<h2>Subject index</h2>
+
+{% assign subjects = site.laws | group_by: "subject" | sort: "name" %}
+
+{% for subject in subjects %}
+  <section class="subject-section" id="{{ subject.name | slugify }}">
+    <h3>{{ subject.name | escape }}</h3>
+
+    <ul>
+      {% assign laws = subject.items | sort: "published" | reverse %}
+
+      {% for law in laws %}
+        <li>
+          <a href="{{ law.url | relative_url }}">
+            {{ law.number | escape }} — {{ law.title | escape }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endfor %}

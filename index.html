@@ -3,6 +3,22 @@ layout: default
 title: Chronological Register
 ---
 
+<div class="register-layout">
+  <aside class="subject-index">
+    <h2>Subject index</h2>
+
+    <a href="{{ '/' | relative_url }}">Chronological Register</a>
+
+    {% assign subjects = site.laws | group_by: "subject" | sort: "name" %}
+
+    {% for subject in subjects %}
+      <a href="{{ '/subjects/' | relative_url }}#{{ subject.name | slugify }}">
+        {{ subject.name | escape }}
+        <small>({{ subject.items.size }})</small>
+      </a>
+    {% endfor %}
+  </aside>
+
 <section class="register">
   <h2>Chronological Register</h2>
 
@@ -34,3 +50,5 @@ title: Chronological Register
     {% endfor %}
   </div>
 </section>
+
+</div>
