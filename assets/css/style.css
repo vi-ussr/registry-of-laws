@@ -130,3 +130,49 @@ footer p:last-child {
     margin-bottom: 12px;
   }
 }
+
+
+.register-list {
+  border-top: 2px solid var(--ink);
+}
+
+.register-entry {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  gap: 24px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.register-number {
+  color: var(--accent);
+}
+
+.register-number small {
+  display: block;
+  margin-top: 6px;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.register-entry h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.register-entry p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .register-entry {
+    grid-template-columns: 90px minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .register-entry h3 {
+    font-size: 19px;
+  }
+}
