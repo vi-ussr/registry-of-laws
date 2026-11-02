@@ -285,3 +285,12 @@ footer nav {
   margin-bottom: 24px;
   font-size: 14px;
 }
+
+#search-form select {
+  max-width: 100%;
+  padding: 10px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+}
