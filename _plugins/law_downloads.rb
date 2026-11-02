@@ -1,5 +1,8 @@
+# Export complete source files, including front matter, rather than rendered document bodies.
+# The versions generator runs first and checks filename uniqueness to prevent download collisions.
 module LawDownloads
   class MarkdownFile < Jekyll::StaticFile
+    # Keep Jekyll's file-copy behaviour while exposing both collections under one download directory.
     def destination(destination_root)
       File.join(destination_root, "downloads", "laws", @name)
     end
@@ -9,10 +12,9 @@ module LawDownloads
     safe true
 
     def generate(site)
-      collection = site.collections["laws"]
-      return unless collection
+      collections = [site.collections["laws"], site.collections["versions"]].compact
 
-      collection.docs.each do |document|
+      collections.flat_map(&:docs).each do |document|
         filename = File.basename(document.path)
         directory = File.dirname(document.relative_path)
         site.static_files << MarkdownFile.new(site, site.source, directory, filename)

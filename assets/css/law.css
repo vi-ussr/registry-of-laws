@@ -15,6 +15,7 @@
   margin: 0;
 }
 
+/* Centre the reading column on the same axis as the site masthead. */
 .law-text {
   max-width: 800px;
   margin-inline: auto;
@@ -58,6 +59,7 @@
   margin: 8px 0;
 }
 
+/* Contents navigation is useful on screen, but unnecessary in a printed document. */
 @media print {
   .law-contents {
     display: none;
@@ -99,6 +101,7 @@
 
 .law-text h2 {
   position: relative;
+  /* Symmetric space keeps heading text centred while reserving room for the § button. */
   padding-inline: 30px;
 }
 
@@ -168,5 +171,45 @@
   .law a {
     color: black;
     text-decoration: none;
+  }
+}
+
+
+.law-history {
+  margin: 24px 0;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+}
+
+.law-history h3 {
+  margin-top: 0;
+}
+
+.law-history select {
+  max-width: 100%;
+  padding: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  font: inherit;
+}
+
+.law-history summary {
+  cursor: pointer;
+  margin-top: 14px;
+}
+
+.law-history li {
+  margin: 12px 0;
+}
+
+.law-history li span {
+  display: block;
+}
+
+@media print {
+  .law-history {
+    display: none;
   }
 }

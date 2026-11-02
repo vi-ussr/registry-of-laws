@@ -1,7 +1,10 @@
 title: Register of Laws
 baseurl: ""
+register_date: "2026-11-02"
 
 collections:
+  versions:
+    output: true
   laws:
     output: true
     permalink: /laws/:name/
@@ -12,3 +15,13 @@ defaults:
       type: laws
     values:
       layout: law
+  - scope:
+      path: ""
+      type: versions
+    values:
+      layout: law
+      render_with_liquid: false
+
+exclude:
+  - docs
+  - examples

@@ -33,6 +33,7 @@ a:focus-visible {
   outline-offset: 4px;
 }
 
+/* Component layout rules must not make hidden search controls or panels visible. */
 [hidden] {
   display: none !important;
 }

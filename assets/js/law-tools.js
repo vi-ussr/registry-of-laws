@@ -1,13 +1,16 @@
+// Metadata comes from the law layout; no source text is changed by these controls.
 const law = document.querySelector(".law");
 
 if (law) {
   const message = document.querySelector("#law-tools-status");
   const fallback = document.querySelector("#law-copy-fallback");
+  // The layout supplies a preserved-version URL, even on the moving current-law page.
   const documentUrl = new URL(law.dataset.lawUrl, window.location.origin);
   const citation = law.dataset.lawType + " No. " + law.dataset.lawNumber +
     ", " + law.dataset.lawTitle + ", " + law.dataset.lawAuthority +
     ", effective " + law.dataset.lawEffective + ".";
 
+  /** Copy a reference, or select it for manual copying when clipboard access is unavailable. */
   async function copyReference(text) {
     fallback.hidden = true;
 
@@ -46,6 +49,7 @@ if (law) {
   const headings = document.querySelectorAll(".law-text h2[id]");
 
   headings.forEach(function (heading, index) {
+    // Read the title before adding the reference button to keep citations free of the § symbol.
     const articleTitle = heading.textContent.trim();
     const articleUrl = new URL(documentUrl.href);
     articleUrl.hash = heading.id;
@@ -99,6 +103,7 @@ if (law) {
 
     toggle.addEventListener("click", function () {
       const shouldOpen = panel.hidden;
+      // Keep only one reference panel open to avoid clutter in long instruments.
       document.querySelectorAll(".article-reference").forEach(function (item) {
         item.hidden = true;
       });

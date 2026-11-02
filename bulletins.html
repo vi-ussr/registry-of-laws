@@ -21,7 +21,8 @@ permalink: /bulletins/
 
       {% for law in laws %}
         <li>
-          <a href="{{ law.url | relative_url }}">
+          {% assign original_version = law.version_history | first %}
+          <a href="{{ original_version.url | default: law.url | relative_url }}">
             {{ law.number | escape }} — {{ law.title | escape }}
           </a>
 

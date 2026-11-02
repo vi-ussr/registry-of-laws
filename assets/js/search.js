@@ -1,3 +1,4 @@
+// Loaded only by index.html; its control IDs are the contract with this script.
 const form = document.querySelector("#search-form");
 const input = document.querySelector("#search-input");
 const status = document.querySelector("#search-status");
@@ -15,10 +16,12 @@ const publishedTo = document.querySelector("#published-to");
 
 let documents = [];
 
+/** Apply all active filters to the server-rendered entries without replacing their links. */
 function filterDocuments() {
   const fromDate = publishedFrom.value;
   const toDate = publishedTo.value;
 
+  // Preserve the previous results while the reader corrects an invalid range.
   if (fromDate && toDate && fromDate > toDate) {
     status.textContent =
       "The start date must not follow the end date. Results are unchanged.";
@@ -46,6 +49,7 @@ function filterDocuments() {
       document.text
     ].join(" ").toLowerCase();
 
+    // Matching is case-insensitive substring matching, not whole-word or linguistic search.
     const matchesWords = words.every(function (word) {
       return searchableText.includes(word);
     });
@@ -73,6 +77,7 @@ function filterDocuments() {
         return !searchableText.includes(word);
       });
 
+    // Quoted YYYY-MM-DD metadata and date-input values sort chronologically as strings.
     const matchesPublication =
       (!fromDate || document.published >= fromDate) &&
       (!toDate || document.published <= toDate);
@@ -86,6 +91,7 @@ function filterDocuments() {
       matchesPublication;
   });
 
+  // Join results to HTML by document_id so titles can change without breaking filtering.
   const matchingIds = new Set(
     matchingDocuments.map(function (document) {
       return document.id;
@@ -149,6 +155,7 @@ document.querySelector("#clear-search").addEventListener("click", function () {
   input.focus();
 });
 
+/** Populate each dropdown once from the catalogue, omitting duplicates and empty values. */
 function populateFilter(select, values) {
   const uniqueValues = [...new Set(values)]
     .filter(Boolean)
@@ -164,6 +171,7 @@ function populateFilter(select, values) {
   });
 }
 
+/** Reveal search only after its data is ready; the static register remains usable on failure. */
 async function loadSearch() {
   try {
     const response = await fetch(form.dataset.indexUrl);
