@@ -333,3 +333,30 @@ footer nav {
     grid-template-columns: 1fr;
   }
 }
+
+.law-contents {
+  max-width: 800px;
+  margin: 24px auto;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.law-contents summary {
+  cursor: pointer;
+  color: var(--accent);
+}
+
+.law-contents ol {
+  margin: 12px 0 0;
+  padding-left: 24px;
+}
+
+.law-contents li {
+  margin: 8px 0;
+}
+
+@media print {
+  .law-contents {
+    display: none;
+  }
+}

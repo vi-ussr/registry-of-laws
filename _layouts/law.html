@@ -22,7 +22,16 @@ layout: default
     <dd>{{ page.effective | escape }}</dd>
   </dl>
 
+  <nav class="law-contents" aria-label="Document contents" hidden>
+    <details open>
+      <summary>Contents</summary>
+      <ol id="law-contents-list"></ol>
+    </details>
+  </nav>
+
   <div class="law-text">
     {{ content }}
   </div>
 </article>
+
+<script src="{{ '/assets/js/law-contents.js' | relative_url }}" defer></script>
