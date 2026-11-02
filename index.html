@@ -18,7 +18,38 @@ title: Chronological Register
   <select id="authority-filter" aria-label="Issuing authority">
     <option value="">All authorities</option>
   </select>
-  
+
+  <details class="advanced-search">
+    <summary>Further particulars</summary>
+
+    <div class="advanced-fields">
+      <label>
+        Exact phrase
+        <input id="phrase-filter" type="text">
+      </label>
+
+      <label>
+        Any of these words
+        <input id="any-filter" type="text">
+      </label>
+
+      <label>
+        Exclude these words
+        <input id="exclude-filter" type="text">
+      </label>
+
+      <label>
+        Published from
+        <input id="published-from" type="date">
+      </label>
+
+      <label>
+        Published through
+        <input id="published-to" type="date">
+      </label>
+    </div>
+  </details>
+
   <button type="submit">Find</button>
   <button type="button" id="clear-search">Clear</button>
 </form>
@@ -44,7 +75,7 @@ title: Chronological Register
 <section class="register">
   <h2>Chronological Register</h2>
 
-  <p>{{ site.laws.size }} Document in the register</p>
+  <p>{{ site.laws.size }} {% if site.laws.size == 1 %}document{% else %}documents{% endif %} in the register</p>
 
   <div class="register-list">
     {% assign laws = site.laws | sort: "published" | reverse %}

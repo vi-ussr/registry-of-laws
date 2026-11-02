@@ -114,7 +114,7 @@ footer p:last-child {
 
 .law-text {
   max-width: 800px;
-  display: inline;
+  margin-inline: auto;
 }
 
 .law-text h2 {
@@ -293,4 +293,43 @@ footer nav {
   background: var(--paper);
   color: var(--ink);
   font: inherit;
+}
+
+.advanced-search {
+  flex-basis: 100%;
+}
+
+.advanced-search summary {
+  cursor: pointer;
+  color: var(--accent);
+  padding: 10px 0;
+}
+
+.advanced-fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  padding: 12px 0;
+}
+
+.advanced-fields label {
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.advanced-fields input {
+  width: 100%;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+}
+
+@media (max-width: 700px) {
+  .advanced-fields {
+    grid-template-columns: 1fr;
+  }
 }
