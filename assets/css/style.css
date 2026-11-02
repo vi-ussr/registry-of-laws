@@ -249,3 +249,39 @@ footer nav {
   gap: 12px 24px;
   margin-bottom: 24px;
 }
+
+[hidden] {
+  display: none !important;
+}
+
+#search-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+#search-input {
+  flex: 1;
+  min-width: 180px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+}
+
+#search-form button {
+  padding: 10px 18px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+}
+
+#search-status {
+  min-height: 24px;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
