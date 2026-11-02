@@ -2,7 +2,13 @@
 layout: default
 ---
 
-<article class="law">
+<article class="law"
+         data-law-url="{{ page.url | relative_url }}"
+         data-law-title="{{ page.title | escape }}"
+         data-law-number="{{ page.number | escape }}"
+         data-law-type="{{ page.type | escape }}"
+         data-law-authority="{{ page.authority | escape }}"
+         data-law-effective="{{ page.effective | escape }}">
   <p>
     <a href="{{ '/' | relative_url }}">← Legal register</a>
   </p>
@@ -22,6 +28,15 @@ layout: default
     <dd>{{ page.effective | escape }}</dd>
   </dl>
 
+  <div class="law-tools" aria-label="Document tools">
+    <button type="button" id="copy-law-link" hidden>Copy document link</button>
+    <button type="button" id="copy-law-citation" hidden>Copy citation</button>
+    <button type="button" id="print-law" hidden>Print / Save as PDF</button>
+    <a href="{{ page.markdown_url | relative_url }}" download>Download Markdown</a>
+  </div>
+  <p id="law-tools-status" role="status"></p>
+  <textarea id="law-copy-fallback" aria-label="Reference to copy manually" readonly hidden></textarea>
+
   <nav class="law-contents" aria-label="Document contents" hidden>
     <details open>
       <summary>Contents</summary>
@@ -35,3 +50,5 @@ layout: default
 </article>
 
 <script src="{{ '/assets/js/law-contents.js' | relative_url }}" defer></script>
+
+<script src="{{ '/assets/js/law-tools.js' | relative_url }}" defer></script>
