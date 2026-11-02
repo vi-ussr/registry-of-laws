@@ -1,0 +1,79 @@
+#search-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+#search-input {
+  flex: 1;
+  min-width: 180px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+}
+
+#search-form button {
+  padding: 10px 18px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+}
+
+#search-status {
+  min-height: 24px;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+#search-form select {
+  max-width: 100%;
+  padding: 10px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+}
+
+.advanced-search {
+  flex-basis: 100%;
+}
+
+.advanced-search summary {
+  cursor: pointer;
+  color: var(--accent);
+  padding: 10px 0;
+}
+
+.advanced-fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  padding: 12px 0;
+}
+
+.advanced-fields label {
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.advanced-fields input {
+  width: 100%;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+}
+
+@media (max-width: 700px) {
+  .advanced-fields {
+    grid-template-columns: 1fr;
+  }
+}

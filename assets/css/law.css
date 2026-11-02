@@ -1,0 +1,65 @@
+.law-details {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 8px 20px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+}
+
+.law-details dt {
+  font-weight: bold;
+}
+
+.law-details dd {
+  margin: 0;
+}
+
+.law-text {
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+.law-text h2 {
+  scroll-margin-top: 24px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .law-details {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .law-details dd {
+    margin-bottom: 12px;
+  }
+}
+
+
+.law-contents {
+  max-width: 800px;
+  margin: 24px auto;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.law-contents summary {
+  cursor: pointer;
+  color: var(--accent);
+}
+
+.law-contents ol {
+  margin: 12px 0 0;
+  padding-left: 24px;
+}
+
+.law-contents li {
+  margin: 8px 0;
+}
+
+@media print {
+  .law-contents {
+    display: none;
+  }
+}

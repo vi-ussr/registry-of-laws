@@ -1,0 +1,38 @@
+:root {
+  --paper: #f4f1eb;
+  --ink: #25231f;
+  --accent: #8b2923;
+  --line: #bfb5a8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: normal;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 4px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+[hidden] {
+  display: none !important;
+}
