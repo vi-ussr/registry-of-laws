@@ -1,0 +1,33 @@
+---
+layout: default
+title: Publication archive
+permalink: /bulletins/
+---
+
+<h2>Publication archive</h2>
+
+<p>Browse instruments by the bulletin in which they were published.</p>
+
+{% assign bulletins = site.laws | group_by: "bulletin" | sort: "name" %}
+
+{% for bulletin in bulletins reversed %}
+  <section class="bulletin-section"
+           id="bulletin-{{ bulletin.name | slugify }}">
+
+    <h3>Bulletin {{ bulletin.name | escape }}</h3>
+
+    <ul>
+      {% assign laws = bulletin.items | sort: "published" %}
+
+      {% for law in laws %}
+        <li>
+          <a href="{{ law.url | relative_url }}">
+            {{ law.number | escape }} — {{ law.title | escape }}
+          </a>
+
+          <small>Published {{ law.published | escape }}</small>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endfor %}

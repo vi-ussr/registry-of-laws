@@ -228,3 +228,24 @@ footer p:last-child {
     padding: 0 0 20px;
   }
 }
+
+.bulletin-section {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.bulletin-section li {
+  margin-bottom: 16px;
+}
+
+.bulletin-section small {
+  display: block;
+  color: #6e655b;
+}
+
+footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-bottom: 24px;
+}
