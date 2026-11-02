@@ -1,0 +1,21 @@
+---
+layout: null
+permalink: /search.json
+---
+[
+  {% assign laws = site.laws | sort: "published" | reverse %}
+
+  {% for law in laws %}
+    {
+      "id": {{ law.document_id | jsonify }},
+      "title": {{ law.title | jsonify }},
+      "number": {{ law.number | jsonify }},
+      "type": {{ law.type | jsonify }},
+      "authority": {{ law.authority | jsonify }},
+      "subject": {{ law.subject | jsonify }},
+      "published": {{ law.published | jsonify }},
+      "url": {{ law.url | relative_url | jsonify }},
+      "text": {{ law.content | markdownify | strip_html | normalize_whitespace | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]
