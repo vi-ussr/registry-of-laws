@@ -11,6 +11,7 @@ module LawDownloads
   class Generator < Jekyll::Generator
     safe true
 
+    # TODO: Generate a standalone HTML download for each version, with its own reading stylesheet.
     def generate(site)
       collections = [site.collections["laws"], site.collections["versions"]].compact
 

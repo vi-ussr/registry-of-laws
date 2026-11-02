@@ -1,4 +1,6 @@
 // Loaded only by index.html; its control IDs are the contract with this script.
+// TODO: Add a search-scope control for title, document text, or all searchable fields.
+// TODO: Filter by legal status once the build exports effective/repealed status in search.json.
 const form = document.querySelector("#search-form");
 const input = document.querySelector("#search-input");
 const status = document.querySelector("#search-status");

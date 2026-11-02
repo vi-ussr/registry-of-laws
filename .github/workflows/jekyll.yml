@@ -33,6 +33,7 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
       # Pages supplies the repository prefix; hard-coded root URLs break project sites.
+      # TODO: Run version-boundary, reference-integrity and generated-link checks before deployment.
       - name: Build with Jekyll
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:

@@ -1,3 +1,4 @@
+/* TODO: Style document tabs and attachment controls when their markup is added; preserve the centred reading column. */
 .law-details {
   display: grid;
   grid-template-columns: 170px 1fr;
