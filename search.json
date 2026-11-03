@@ -13,6 +13,7 @@ permalink: /search.json
       "type": {{ law.type | jsonify }},
       "authority": {{ law.authority | jsonify }},
       "subject": {{ law.subject | jsonify }},
+      "status": {{ law.legal_status | jsonify }},
       "published": {{ law.published | jsonify }},
       "url": {{ law.url | relative_url | jsonify }},
       "text": {{ law.search_text | default: law.content | markdownify | strip_html | normalize_whitespace | jsonify }}

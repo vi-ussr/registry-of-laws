@@ -1,12 +1,12 @@
 // Loaded only by index.html; its control IDs are the contract with this script.
 // TODO: Add a search-scope control for title, document text, or all searchable fields.
-// TODO: Filter by legal status once the build exports effective/repealed status in search.json.
 const form = document.querySelector("#search-form");
 const input = document.querySelector("#search-input");
 const status = document.querySelector("#search-status");
 const entries = document.querySelectorAll(".register-entry");
 
 const typeFilter = document.querySelector("#type-filter");
+const statusFilter = document.querySelector("#status-filter");
 const authorityFilter = document.querySelector("#authority-filter");
 
 const phraseFilter = document.querySelector("#phrase-filter");
@@ -84,7 +84,9 @@ function filterDocuments() {
       (!fromDate || document.published >= fromDate) &&
       (!toDate || document.published <= toDate);
 
-    return matchesWords &&
+    const matchesStatus = statusFilter.value === "" || document.status === statusFilter.value;
+
+    return matchesStatus && matchesWords &&
       matchesType &&
       matchesAuthority &&
       matchesPhrase &&
@@ -114,6 +116,7 @@ function filterDocuments() {
 
   const hasFilters =
     query !== "" ||
+    statusFilter.value !== "" ||
     typeFilter.value !== "" ||
     authorityFilter.value !== "" ||
     phrase !== "" ||
@@ -134,6 +137,7 @@ phraseFilter.addEventListener("input", filterDocuments);
 anyFilter.addEventListener("input", filterDocuments);
 excludeFilter.addEventListener("input", filterDocuments);
 
+statusFilter.addEventListener("change", filterDocuments);
 typeFilter.addEventListener("change", filterDocuments);
 authorityFilter.addEventListener("change", filterDocuments);
 
@@ -146,6 +150,7 @@ input.addEventListener("input", filterDocuments);
 
 document.querySelector("#clear-search").addEventListener("click", function () {
   input.value = "";
+  statusFilter.value = "";
   typeFilter.value = "";
   authorityFilter.value = "";
   phraseFilter.value = "";

@@ -13,11 +13,15 @@ if (versionSelect) {
 if (versionSelect && dateForm) {
   const dateInput = document.querySelector("#law-version-date");
   const dateStatus = document.querySelector("#law-date-status");
+  const archiveLink = document.querySelector("#law-date-archive");
+  const repealDate = dateForm.dataset.repealed;
   dateForm.hidden = false;
 
   dateForm.addEventListener("submit", function (event) {
     event.preventDefault();
     if (!dateForm.reportValidity()) return;
+    dateStatus.textContent = "";
+    archiveLink.hidden = true;
 
     // Quoted ISO dates are validated at build time and sort in calendar order.
     // Choose the latest start date that does not come after the requested day.
@@ -35,11 +39,19 @@ if (versionSelect && dateForm) {
       return;
     }
 
-    // Repeal handling is a separate milestone; this currently selects complete text versions.
+    // Keep the notice visible instead of silently opening wording that no longer applies.
+    if (repealDate && dateInput.value >= repealDate) {
+      dateStatus.textContent = "This law was repealed from " + repealDate + ". No text was in force on the selected date.";
+      archiveLink.href = selectedVersion.value;
+      archiveLink.hidden = false;
+      return;
+    }
+
     window.location.assign(selectedVersion.value);
   });
 
   dateInput.addEventListener("input", function () {
+    archiveLink.hidden = true;
     dateStatus.textContent = "";
   });
 }

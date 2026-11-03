@@ -9,6 +9,7 @@ adopted: "2026-10-28"
 published: "2026-10-30"
 effective: "2026-10-31"
 bulletin: "2026-10-30"
+repealed: "2026-11-02"
 attachments: []
 ---
 

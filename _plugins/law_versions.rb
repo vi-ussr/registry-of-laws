@@ -38,7 +38,6 @@ module LawVersions
         end
       end
 
-      # TODO: Validate repeal dates and stop marking a text Current once its instrument is repealed.
       # TODO: Validate related/amends/repeals IDs and generate reverse links without interpreting legal prose.
       # TODO: Preserve attachment metadata per version and validate supported Drive file links/resource keys.
       laws.each do |law|
@@ -48,6 +47,23 @@ module LawVersions
         if documents.first != law || documents.map { |d| d.data["effective"] }.uniq.size != documents.size
           raise Jekyll::Errors::FatalException, "Revisions must follow the original and have distinct effective dates"
         end
+        repeal = law.data["repealed"]
+        if law.data.key?("repealed")
+          valid_date(repeal, "#{law.relative_path} repealed")
+          if repeal <= documents.last.data["effective"]
+            raise Jekyll::Errors::FatalException, "Repeal must follow every text version's effective date"
+          end
+        end
+        # Repeal begins on the stated date; archived wording remains accessible.
+        repealed = repeal && repeal <= register_date
+        legal_status = if repealed
+          "Repealed"
+        elsif law.data["effective"] > register_date
+          "Not yet effective"
+        else
+          "In force"
+        end
+        law.data["legal_status"] = legal_status
         # Use the configured register date, not the machine clock, to select the applicable text.
         current = documents.select { |document| document.data["effective"] <= register_date }.last
         # If nothing is effective yet, show the original with a Not yet effective label.
@@ -57,7 +73,7 @@ module LawVersions
           {"effective" => date,
            "url" => "/laws/#{law.data["document_id"]}/versions/#{date}/",
            "note" => document == law ? "Original publication" : document.data.fetch("change_note", "Revised text"),
-           "status" => date > register_date ? "Future" : (document == current ? "Current" : "Historical")}
+           "status" => date > register_date ? "Future" : (document == current && !repealed ? "Current" : "Historical")}
         end
 
         documents.each_with_index do |document, index|
@@ -86,7 +102,7 @@ module LawVersions
         law.data["version_history"] = history
         law.data["display_effective"] = selected.data["effective"]
         law.data["version_permalink"] = history[current_index]["url"]
-        law.data["version_status"] = current ? "Current" : "Not yet effective"
+        law.data["version_status"] = repealed ? "Historical" : (current ? "Current" : "Not yet effective")
         law.data["display_text"] = site.find_converter_instance(Jekyll::Converters::Markdown).convert(selected.content)
         law.data["search_text"] = selected.content
         law.data["selected_markdown_url"] = "/downloads/laws/#{File.basename(selected.path)}"

@@ -24,6 +24,16 @@ title: Chronological Register
 
     <div class="advanced-fields">
       <label>
+        Status on {{ site.register_date }}
+        <select id="status-filter">
+          <option value="">All legal statuses</option>
+          <option value="In force">In force</option>
+          <option value="Not yet effective">Not yet effective</option>
+          <option value="Repealed">Repealed</option>
+        </select>
+      </label>
+
+      <label>
         Exact phrase
         <input id="phrase-filter" type="text">
       </label>
@@ -96,6 +106,7 @@ title: Chronological Register
 
           <p>{{ law.authority | escape }}</p>
           <p>Published {{ law.published | escape }}</p>
+          <p>{{ law.legal_status | escape }} as of {{ site.register_date }}</p>
         </div>
       </article>
     {% else %}

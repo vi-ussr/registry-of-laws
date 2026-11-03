@@ -26,6 +26,14 @@ TODO: Add a version-specific attachments include with Drive view/download links 
     <dt>Issuing authority</dt>
     <dd>{{ page.authority | escape }}</dd>
 
+    <dt>Status on {{ site.register_date }}</dt>
+    <dd>{{ page.legal_status | escape }}</dd>
+
+    {% if page.repealed %}
+      <dt>Repealed from</dt>
+      <dd>{{ page.repealed | escape }}</dd>
+    {% endif %}
+
     <dt>Published</dt>
     <dd>{{ page.published | escape }}</dd>
 
@@ -45,11 +53,12 @@ TODO: Add a version-specific attachments include with Drive view/download links 
         </option>
       {% endfor %}
     </select>
-    <form id="law-date-form" class="law-date-form" hidden>
+    <form id="law-date-form" class="law-date-form" data-repealed="{{ page.repealed | escape }}" hidden>
       <label for="law-version-date">Text effective on</label>
       <input type="date" id="law-version-date" required>
       <button type="submit">Read text</button>
       <p id="law-date-status" role="status"></p>
+      <a id="law-date-archive" hidden>Read the last preserved text</a>
     </form>
     <details>
       <summary>Version history</summary>
