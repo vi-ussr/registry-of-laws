@@ -214,3 +214,26 @@
     display: none;
   }
 }
+
+.law-date-form {
+  margin-top: 16px;
+}
+
+.law-date-form input,
+.law-date-form button {
+  max-width: 100%;
+  padding: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  font: inherit;
+}
+
+.law-date-form button {
+  cursor: pointer;
+}
+
+.law-date-form label {
+  display: block;
+  margin-bottom: 8px;
+}

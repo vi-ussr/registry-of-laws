@@ -40,11 +40,17 @@ TODO: Add a version-specific attachments include with Drive view/download links 
     <label for="law-version-select">Read a preserved version</label>
     <select id="law-version-select">
       {% for version in page.version_history %}
-        <option value="{{ version.url | relative_url }}" {% if version.effective == page.display_effective %}selected{% endif %}>
+        <option data-effective="{{ version.effective | escape }}" value="{{ version.url | relative_url }}" {% if version.effective == page.display_effective %}selected{% endif %}>
           {{ version.effective }} — {{ version.status }}
         </option>
       {% endfor %}
     </select>
+    <form id="law-date-form" class="law-date-form" hidden>
+      <label for="law-version-date">Text effective on</label>
+      <input type="date" id="law-version-date" required>
+      <button type="submit">Read text</button>
+      <p id="law-date-status" role="status"></p>
+    </form>
     <details>
       <summary>Version history</summary>
       <ul>
