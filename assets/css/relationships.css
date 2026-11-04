@@ -1,0 +1,16 @@
+.law-relationships {
+  max-width: 800px;
+  margin: 32px auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+
+.law-relationships h4 {
+  margin-bottom: 8px;
+}
+
+.law-relationships li {
+  margin: 8px 0;
+}

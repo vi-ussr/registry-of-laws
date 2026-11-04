@@ -9,6 +9,8 @@ adopted: "2026-11-01"
 published: "2026-11-02"
 effective: "2026-12-01"
 bulletin: "2026-11-02"
+amends:
+  - test-state-enterprises
 attachments: []
 ---
 

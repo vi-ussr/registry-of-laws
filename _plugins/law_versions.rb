@@ -38,7 +38,6 @@ module LawVersions
         end
       end
 
-      # TODO: Validate related/amends/repeals IDs and generate reverse links without interpreting legal prose.
       # TODO: Preserve attachment metadata per version and validate supported Drive file links/resource keys.
       laws.each do |law|
         documents = [law] + revisions.select { |revision| revision.data["revision_of"] == law.data["document_id"] }

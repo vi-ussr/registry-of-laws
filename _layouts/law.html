@@ -90,6 +90,8 @@ TODO: Add a version-specific attachments include with Drive view/download links 
   <div class="law-text">
     {% if page.display_text %}{{ page.display_text }}{% else %}{{ content }}{% endif %}
   </div>
+
+  {% include law-relationships.html %}
 </article>
 
 <script src="{{ '/assets/js/law-contents.js' | relative_url }}" defer></script>

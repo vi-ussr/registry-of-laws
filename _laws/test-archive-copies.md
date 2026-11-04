@@ -9,6 +9,10 @@ adopted: "2026-11-01"
 published: "2026-11-02"
 effective: "2026-11-02"
 bulletin: "2026-11-02"
+repeals:
+  - test-local-registers
+related:
+  - test-citizenship-records
 attachments: []
 ---
 

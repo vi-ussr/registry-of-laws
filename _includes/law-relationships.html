@@ -1,0 +1,14 @@
+{% if page.relationship_groups.size > 0 %}
+<section class="law-relationships" aria-labelledby="relationships-heading">
+  <h3 id="relationships-heading">Related legislation</h3>
+  <p>Instrument relationships across the register; these are not limited to the displayed text version.</p>
+  {% for group in page.relationship_groups %}
+    <h4>{{ group.label | escape }}</h4>
+    <ul>
+      {% for item in group.items %}
+        <li><a href="{{ item.url | relative_url }}">{{ item.number | escape }} ? {{ item.title | escape }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+</section>
+{% endif %}
