@@ -1,0 +1,23 @@
+.law-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin: 24px 0;
+  padding: 12px 0;
+  border-block: 1px solid var(--line);
+}
+
+.law-tabs a { padding: 4px 0; }
+.law-tabs [aria-selected="true"] { color: var(--ink); font-weight: bold; }
+.law-panel { scroll-margin-top: 24px; }
+
+@media screen {
+  .law-tabs-ready .law-panel-heading { display: none; }
+}
+
+/* Printing must include the text and metadata, whichever tab is selected. */
+@media print {
+  .law-tabs, .law-panel-heading,
+  #document-history, #document-related { display: none !important; }
+  #document-text, #document-information { display: block !important; }
+}

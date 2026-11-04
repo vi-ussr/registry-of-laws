@@ -1,9 +1,6 @@
 ---
 layout: default
 ---
-{% comment %}
-TODO: Add Text, History, Relationships and Information tabs with keyboard-accessible controls.
-{% endcomment %}
 
 
 <article class="law"
@@ -21,25 +18,39 @@ TODO: Add Text, History, Relationships and Information tabs with keyboard-access
 
   <h2>{{ page.title | escape }}</h2>
 
-  <dl class="law-details">
-    <dt>Issuing authority</dt>
-    <dd>{{ page.authority | escape }}</dd>
+  <nav class="law-tabs" aria-label="Document sections">
+    <a id="tab-text" href="#document-text">Text</a>
+    <a id="tab-history" href="#document-history">History</a>
+    <a id="tab-related" href="#document-related">Related legislation</a>
+    <a id="tab-information" href="#document-information">Information &amp; files</a>
+  </nav>
 
-    <dt>Status on {{ site.register_date }}</dt>
-    <dd>{{ page.legal_status | escape }}</dd>
+  <section id="document-text" class="law-panel" aria-labelledby="tab-text">
+    <h3 class="law-panel-heading">Text</h3>
+  <div class="law-tools" aria-label="Document tools">
+    <button type="button" id="copy-law-link" hidden>Copy document link</button>
+    <button type="button" id="copy-law-citation" hidden>Copy citation</button>
+    <button type="button" id="print-law" hidden>Print / Save as PDF</button>
+    <a href="{{ page.selected_markdown_url | default: page.markdown_url | relative_url }}" download>Download Markdown</a>
+  </div>
+  <p id="law-tools-status" role="status"></p>
+  <textarea id="law-copy-fallback" aria-label="Reference to copy manually" readonly hidden></textarea>
 
-    {% if page.repealed %}
-      <dt>Repealed from</dt>
-      <dd>{{ page.repealed | escape }}</dd>
-    {% endif %}
+  <nav class="law-contents" aria-label="Document contents" hidden>
+    <details open>
+      <summary>Contents</summary>
+      <ol id="law-contents-list"></ol>
+    </details>
+  </nav>
 
-    <dt>Published</dt>
-    <dd>{{ page.published | escape }}</dd>
+  <div class="law-text">
+    {% if page.display_text %}{{ page.display_text }}{% else %}{{ content }}{% endif %}
+  </div>
 
-    <dt>Effective from</dt>
-    <dd>{{ page.display_effective | default: page.effective | escape }}</dd>
-  </dl>
+  </section>
 
+  <section id="document-history" class="law-panel" aria-labelledby="tab-history">
+    <h3 class="law-panel-heading">History</h3>
   <section class="law-history" aria-labelledby="history-heading">
     <h3 id="history-heading">Text versions</h3>
     <p>{{ page.version_status | escape }} text · effective {{ page.display_effective }}<br>
@@ -70,28 +81,42 @@ TODO: Add Text, History, Relationships and Information tabs with keyboard-access
     </details>
   </section>
 
-  <div class="law-tools" aria-label="Document tools">
-    <button type="button" id="copy-law-link" hidden>Copy document link</button>
-    <button type="button" id="copy-law-citation" hidden>Copy citation</button>
-    <button type="button" id="print-law" hidden>Print / Save as PDF</button>
-    <a href="{{ page.selected_markdown_url | default: page.markdown_url | relative_url }}" download>Download Markdown</a>
-  </div>
-  <p id="law-tools-status" role="status"></p>
-  <textarea id="law-copy-fallback" aria-label="Reference to copy manually" readonly hidden></textarea>
+  </section>
 
-  <nav class="law-contents" aria-label="Document contents" hidden>
-    <details open>
-      <summary>Contents</summary>
-      <ol id="law-contents-list"></ol>
-    </details>
-  </nav>
+  <section id="document-related" class="law-panel" aria-labelledby="tab-related">
+    <h3 class="law-panel-heading">Related legislation</h3>
+    {% include law-relationships.html %}
+    {% unless page.relationship_groups.size > 0 %}
+      <p>No related legislation has been recorded.</p>
+    {% endunless %}
+  </section>
 
-  <div class="law-text">
-    {% if page.display_text %}{{ page.display_text }}{% else %}{{ content }}{% endif %}
-  </div>
+  <section id="document-information" class="law-panel" aria-labelledby="tab-information">
+    <h3 class="law-panel-heading">Information &amp; files</h3>
+  <dl class="law-details">
+    <dt>Issuing authority</dt>
+    <dd>{{ page.authority | escape }}</dd>
 
-  {% include law-attachments.html %}
-  {% include law-relationships.html %}
+    <dt>Status on {{ site.register_date }}</dt>
+    <dd>{{ page.legal_status | escape }}</dd>
+
+    {% if page.repealed %}
+      <dt>Repealed from</dt>
+      <dd>{{ page.repealed | escape }}</dd>
+    {% endif %}
+
+    <dt>Published</dt>
+    <dd>{{ page.published | escape }}</dd>
+
+    <dt>Effective from</dt>
+    <dd>{{ page.display_effective | default: page.effective | escape }}</dd>
+  </dl>
+
+    {% include law-attachments.html %}
+    {% unless page.display_attachments.size > 0 %}
+      <p>No attachments are available for this text version.</p>
+    {% endunless %}
+  </section>
 </article>
 
 <script src="{{ '/assets/js/law-contents.js' | relative_url }}" defer></script>
@@ -101,3 +126,5 @@ TODO: Add Text, History, Relationships and Information tabs with keyboard-access
 <script src="{{ '/assets/js/law-versions.js' | relative_url }}" defer></script>
 
 <script src="{{ '/assets/js/law-attachments.js' | relative_url }}" defer></script>
+
+<script src="{{ '/assets/js/law-tabs.js' | relative_url }}" defer></script>
