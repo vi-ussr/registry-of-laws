@@ -31,6 +31,7 @@ layout: default
     <button type="button" id="copy-law-link" hidden>Copy document link</button>
     <button type="button" id="copy-law-citation" hidden>Copy citation</button>
     <button type="button" id="print-law" hidden>Print / Save as PDF</button>
+    <a href="{{ page.selected_html_url | default: page.html_url | relative_url }}" download>Download HTML</a>
     <a href="{{ page.selected_markdown_url | default: page.markdown_url | relative_url }}" download>Download Markdown</a>
   </div>
   <p id="law-tools-status" role="status"></p>

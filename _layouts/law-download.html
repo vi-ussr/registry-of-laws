@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="MatworId">
+  <title>{{ page.title | escape }} - {{ page.display_effective | escape }}</title>
+  <style>{% include law-download.css %}</style>
+</head>
+<body>
+  <header>
+    <p>Commissariat of Justice<br>Office of First Deputy Commissar<br>Section of Legislative Publishing and Administration</p>
+    <p class="register-title">Register of Laws</p>
+  </header>
+  <main>
+    <p>{{ page.type | escape }} No. {{ page.number | escape }}</p>
+    <h1>{{ page.title | escape }}</h1>
+    <dl>
+      <dt>Issuing authority</dt><dd>{{ page.authority | escape }}</dd>
+      <dt>Published</dt><dd>{{ page.published | escape }}</dd>
+      <dt>Text effective from</dt><dd>{{ page.display_effective | escape }}</dd>
+      <dt>Text version</dt><dd>{{ page.export_version_status | escape }}</dd>
+      <dt>Status on {{ site.register_date }}</dt><dd>{{ page.legal_status | escape }}</dd>
+      {% if page.repealed %}<dt>Repealed from</dt><dd>{{ page.repealed | escape }}</dd>{% endif %}
+    </dl>
+    <article>{{ content }}</article>
+  </main>
+  <footer>Register snapshot: {{ site.register_date }}. Status may change in later publications.<br>Project author: MatworId</footer>
+</body>
+</html>

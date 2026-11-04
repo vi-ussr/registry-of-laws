@@ -1,0 +1,14 @@
+/* Embedded in each export so the reading layout works without a connection. */
+* { box-sizing: border-box; }
+body { max-width: 900px; margin: 0 auto; padding: 32px; background: #f4f1eb; color: #25231f; font: 18px/1.6 Georgia, serif; overflow-wrap: anywhere; }
+header { text-align: center; border-bottom: 3px double #25231f; padding-bottom: 20px; }
+header p, footer { font-size: 14px; }
+.register-title { font-size: 30px; text-transform: uppercase; letter-spacing: 2px; }
+h1 { font-size: 28px; font-weight: normal; }
+article h2 { text-align: center; font-size: 24px; font-weight: normal; }
+dl { display: grid; grid-template-columns: 180px 1fr; gap: 8px 16px; font-size: 15px; border-bottom: 1px solid #bfb5a8; padding-bottom: 24px; }
+dt { font-weight: bold; } dd { margin: 0; }
+a { color: #8b2923; } img, table { max-width: 100%; } pre { white-space: pre-wrap; }
+footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid #bfb5a8; }
+@media (max-width: 600px) { body { padding: 20px; } dl { grid-template-columns: 1fr; } dd { margin-bottom: 8px; } }
+@media print { body { max-width: none; padding: 0; background: white; color: black; } h1, h2 { break-after: avoid; } }
