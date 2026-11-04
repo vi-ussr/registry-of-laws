@@ -1,0 +1,23 @@
+.law-attachments {
+  max-width: 800px;
+  margin: 32px auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+
+.law-attachments ul { list-style: none; padding: 0; }
+.law-attachment { margin: 24px 0; }
+.law-attachment a, .attachment-preview-toggle { margin: 0 16px 8px 0; display: inline-block; }
+.attachment-preview-toggle {
+  font: inherit;
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid var(--line);
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.attachment-preview iframe { width: 100%; height: 650px; border: 1px solid var(--line); }
+@media (max-width: 600px) { .attachment-preview iframe { height: 420px; } }
+@media print { .attachment-preview, .attachment-preview-toggle { display: none !important; } }

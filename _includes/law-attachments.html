@@ -1,0 +1,19 @@
+{% if page.display_attachments.size > 0 %}
+<section class="law-attachments" aria-labelledby="attachments-heading">
+  <h3 id="attachments-heading">Files and attachments</h3>
+  <p>Files for the displayed text version. Open files in Google Drive if the preview is unavailable.</p>
+  <ul>
+    {% for attachment in page.display_attachments %}
+      <li class="law-attachment">
+        <p><strong>{{ attachment.title | escape }}</strong> ({{ attachment.format | escape }})</p>
+        <a href="{{ attachment.view_url | escape }}" target="_blank" rel="noopener noreferrer">Open in Google Drive</a>
+        <a href="{{ attachment.download_url | escape }}" target="_blank" rel="noopener noreferrer">Download</a>
+        {% if attachment.preview_url %}
+          <button type="button" class="attachment-preview-toggle" data-preview-url="{{ attachment.preview_url | escape }}" data-preview-title="{{ attachment.title | escape }}" aria-controls="attachment-preview-{{ forloop.index }}" aria-expanded="false" hidden>Show PDF preview</button>
+          <div id="attachment-preview-{{ forloop.index }}" class="attachment-preview" hidden></div>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}

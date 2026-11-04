@@ -3,7 +3,6 @@ layout: default
 ---
 {% comment %}
 TODO: Add Text, History, Relationships and Information tabs with keyboard-accessible controls.
-TODO: Add a version-specific attachments include with Drive view/download links and opt-in PDF preview.
 {% endcomment %}
 
 
@@ -91,6 +90,7 @@ TODO: Add a version-specific attachments include with Drive view/download links 
     {% if page.display_text %}{{ page.display_text }}{% else %}{{ content }}{% endif %}
   </div>
 
+  {% include law-attachments.html %}
   {% include law-relationships.html %}
 </article>
 
@@ -99,3 +99,5 @@ TODO: Add a version-specific attachments include with Drive view/download links 
 <script src="{{ '/assets/js/law-tools.js' | relative_url }}" defer></script>
 
 <script src="{{ '/assets/js/law-versions.js' | relative_url }}" defer></script>
+
+<script src="{{ '/assets/js/law-attachments.js' | relative_url }}" defer></script>

@@ -1,5 +1,4 @@
 // Metadata comes from the law layout; no source text is changed by these controls.
-// TODO: Load a Google Drive PDF preview only after the reader requests it, retaining an external-open fallback.
 const law = document.querySelector(".law");
 
 if (law) {

@@ -1,4 +1,5 @@
 require "date"
+require_relative "law_attachments"
 
 # Build version metadata before layouts render and before the download generator runs.
 # Originals remain in _laws; _versions contains complete later texts, not amendment instructions.
@@ -38,7 +39,7 @@ module LawVersions
         end
       end
 
-      # TODO: Preserve attachment metadata per version and validate supported Drive file links/resource keys.
+      attachment_sets = (laws + revisions).to_h { |document| [document.path, LawAttachments.normalize(document)] }
       laws.each do |law|
         documents = [law] + revisions.select { |revision| revision.data["revision_of"] == law.data["document_id"] }
         documents.each { |document| valid_date(document.data["effective"], document.relative_path) }
@@ -79,6 +80,8 @@ module LawVersions
           # Inherit the law identity while preserving each text's effective date and source download.
           fields = law.data.reject { |key, value| ["layout", "permalink"].include?(key) }.merge(
             "layout" => "law", "version_history" => history,
+            "attachments" => document.data.fetch("attachments", []),
+            "display_attachments" => attachment_sets.fetch(document.path),
             "effective" => document.data["effective"],
             "display_effective" => document.data["effective"],
             "version_permalink" => history[index]["url"],
@@ -100,6 +103,7 @@ module LawVersions
         current_index = documents.index(selected)
         law.data["version_history"] = history
         law.data["display_effective"] = selected.data["effective"]
+        law.data["display_attachments"] = attachment_sets.fetch(selected.path)
         law.data["version_permalink"] = history[current_index]["url"]
         law.data["version_status"] = repealed ? "Historical" : (current ? "Current" : "Not yet effective")
         law.data["display_text"] = site.find_converter_instance(Jekyll::Converters::Markdown).convert(selected.content)
