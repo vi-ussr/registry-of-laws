@@ -1,0 +1,21 @@
+{% if page.version_history.size > 1 %}
+<form id="law-comparison-form" hidden>
+  <h3>Compare text versions</h3>
+  <p>Articles are matched by their identifiers. This compares wording, not formatting or legal effect.</p>
+  <label for="compare-before">Earlier text</label>
+  <select id="compare-before">
+    {% for version in page.version_history %}
+      <option value="{{ version.html_url | relative_url }}" data-effective="{{ version.effective }}">{{ version.effective }}</option>
+    {% endfor %}
+  </select>
+  <label for="compare-after">Later text</label>
+  <select id="compare-after">
+    {% for version in page.version_history %}
+      <option value="{{ version.html_url | relative_url }}" data-effective="{{ version.effective }}" {% if forloop.last %}selected{% endif %}>{{ version.effective }}</option>
+    {% endfor %}
+  </select>
+  <button type="submit">Compare</button>
+  <p id="comparison-status" role="status"></p>
+</form>
+<div id="comparison-results" aria-label="Version comparison" hidden></div>
+{% endif %}

@@ -1,0 +1,12 @@
+#law-comparison-form { margin: 24px 0; }
+#law-comparison-form label { display: block; margin-top: 12px; }
+#law-comparison-form select, #law-comparison-form button {
+  max-width: 100%; padding: 8px; font: inherit;
+  border: 1px solid var(--line); background: var(--paper); color: var(--ink);
+}
+#law-comparison-form button { cursor: pointer; }
+.comparison-row { border-top: 1px solid var(--line); margin: 24px 0; overflow-wrap: anywhere; }
+.comparison-columns { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
+.comparison-columns h5 { font: inherit; font-weight: bold; margin: 8px 0; }
+.comparison-columns p { white-space: pre-wrap; font-size: 15px; }
+@media (max-width: 600px) { .comparison-columns { grid-template-columns: 1fr; } }

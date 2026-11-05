@@ -72,6 +72,7 @@ module LawVersions
           date = document.data["effective"]
           {"effective" => date,
            "url" => "/laws/#{law.data["document_id"]}/versions/#{date}/",
+           "html_url" => "/downloads/laws/#{File.basename(document.path, File.extname(document.path))}.html",
            "note" => document == law ? "Original publication" : document.data.fetch("change_note", "Revised text"),
            "status" => date > register_date ? "Future" : (document == current && !repealed ? "Current" : "Historical")}
         end

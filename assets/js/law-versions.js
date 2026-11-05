@@ -1,5 +1,3 @@
-// TODO: Allow two preserved versions to be selected for an article-by-article comparison.
-
 // History anchors remain usable without JavaScript; these controls add convenient navigation.
 const versionSelect = document.querySelector("#law-version-select");
 const dateForm = document.querySelector("#law-date-form");
