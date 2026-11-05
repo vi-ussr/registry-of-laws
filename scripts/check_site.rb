@@ -100,7 +100,13 @@ laws.each do |path|
     export = File.join(root, "downloads", "laws", stem + ".html")
     errors << "#{source_path}: missing HTML download" unless File.file?(export)
     archive = File.join(root, "laws", id, "versions", version.fetch("effective"), "index.html")
-    errors << "#{source_path}: missing preserved version" unless File.file?(archive)
+    if File.file?(archive)
+      File.read(source_path).scan(/\{:\s*#([A-Za-z0-9_-]+)\s*\}/).flatten.each do |article_id|
+        errors << "#{source_path}: preserved article anchor missing: #{article_id}" unless ids.fetch(archive, []).include?(article_id)
+      end
+    else
+      errors << "#{source_path}: missing preserved version"
+    end
   end
 end
 

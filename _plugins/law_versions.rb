@@ -91,7 +91,8 @@ module LawVersions
           # The original also needs an immutable URL because its main route can show later text.
           if document == law
             snapshot = Jekyll::PageWithoutAFile.new(site, site.source, history[index]["url"].sub(%r{\A/}, ""), "index.html")
-            snapshot.content = law.content
+            # Generated .html pages need explicit Markdown conversion for article anchors.
+            snapshot.content = site.find_converter_instance(Jekyll::Converters::Markdown).convert(law.content)
             snapshot.data = fields.merge("render_with_liquid" => false)
             site.pages << snapshot
           else
