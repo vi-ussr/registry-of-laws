@@ -24,6 +24,15 @@ title: Chronological Register
 
     <div class="advanced-fields">
       <label>
+        Search within
+        <select id="scope-filter" aria-describedby="scope-help">
+          <option value="all">All searchable fields</option>
+          <option value="title">Document title</option>
+          <option value="text">Article text</option>
+        </select>
+        <small id="scope-help">Applies to keywords, exact phrase, any words and excluded words.</small>
+      </label>
+      <label>
         Status on {{ site.register_date }}
         <select id="status-filter">
           <option value="">All legal statuses</option>

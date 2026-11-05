@@ -1,10 +1,10 @@
 // Loaded only by index.html; its control IDs are the contract with this script.
-// TODO: Add a search-scope control for title, document text, or all searchable fields.
 const form = document.querySelector("#search-form");
 const input = document.querySelector("#search-input");
 const status = document.querySelector("#search-status");
 const entries = document.querySelectorAll(".register-entry");
 
+const scopeFilter = document.querySelector("#scope-filter");
 const typeFilter = document.querySelector("#type-filter");
 const statusFilter = document.querySelector("#status-filter");
 const authorityFilter = document.querySelector("#authority-filter");
@@ -42,7 +42,7 @@ function filterDocuments() {
   const excludedWords = excludeText ? excludeText.split(/\s+/) : [];
 
   const matchingDocuments = documents.filter(function (document) {
-    const searchableText = [
+    let searchableText = [
       document.title,
       document.number,
       document.type,
@@ -50,6 +50,13 @@ function filterDocuments() {
       document.subject,
       document.text
     ].join(" ").toLowerCase();
+
+    // One scope applies consistently to every text condition; metadata filters stay independent.
+    if (scopeFilter.value === "title") {
+      searchableText = (document.title || "").toLowerCase();
+    } else if (scopeFilter.value === "text") {
+      searchableText = (document.text || "").toLowerCase();
+    }
 
     // Matching is case-insensitive substring matching, not whole-word or linguistic search.
     const matchesWords = words.every(function (word) {
@@ -137,6 +144,7 @@ phraseFilter.addEventListener("input", filterDocuments);
 anyFilter.addEventListener("input", filterDocuments);
 excludeFilter.addEventListener("input", filterDocuments);
 
+scopeFilter.addEventListener("change", filterDocuments);
 statusFilter.addEventListener("change", filterDocuments);
 typeFilter.addEventListener("change", filterDocuments);
 authorityFilter.addEventListener("change", filterDocuments);
@@ -150,6 +158,7 @@ input.addEventListener("input", filterDocuments);
 
 document.querySelector("#clear-search").addEventListener("click", function () {
   input.value = "";
+  scopeFilter.value = "all";
   statusFilter.value = "";
   typeFilter.value = "";
   authorityFilter.value = "";
