@@ -29,6 +29,8 @@ jobs:
           ruby-version: '3.3'
           bundler-cache: true
           cache-version: 0
+      - name: Check version behavior
+        run: bundle exec ruby scripts/check_versions.rb
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
