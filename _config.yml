@@ -23,5 +23,6 @@ defaults:
       render_with_liquid: false
 
 exclude:
+  - scripts
   - docs
   - examples
