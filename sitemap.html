@@ -1,0 +1,26 @@
+---
+layout: information
+title: Site map
+permalink: /sitemap/
+---
+<h3>Using the register</h3>
+<ul>
+  <li><a href="{{ '/' | relative_url }}">Chronological Register and search</a></li>
+  <li><a href="{{ '/subjects/' | relative_url }}">Subject index</a></li>
+  <li><a href="{{ '/bulletins/' | relative_url }}">Publication archive</a></li>
+</ul>
+<h3>About the website</h3>
+<ul>
+  <li><a href="{{ '/about/' | relative_url }}">What is the register?</a></li>
+  <li><a href="{{ '/faq/' | relative_url }}">Frequently asked questions</a></li>
+  <li><a href="{{ '/contact/' | relative_url }}">Write us</a></li>
+</ul>
+<h3>Documents</h3>
+<ul>
+  {% assign documents = site.laws | sort: "published" | reverse %}
+  {% for law in documents %}
+    <li><a href="{{ law.url | relative_url }}">{{ law.number | escape }} - {{ law.title | escape }}</a></li>
+  {% else %}
+    <li>No documents have been published.</li>
+  {% endfor %}
+</ul>

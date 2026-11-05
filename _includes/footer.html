@@ -1,15 +1,26 @@
-<nav aria-label="Footer navigation">
-  <a href="{{ '/' | relative_url }}">Chronological Register</a>
-  <a href="{{ '/subjects/' | relative_url }}">Subject index</a>
-  <a href="{{ '/bulletins/' | relative_url }}">Publication archive</a>
-</nav>
-
 <footer>
+  <div class="footer-sections">
+    <nav aria-label="Using the register">
+      <h2>Using the register</h2>
+      <a href="{{ '/' | relative_url }}">Chronological Register</a>
+      <a href="{{ '/subjects/' | relative_url }}">Subject index</a>
+      <a href="{{ '/bulletins/' | relative_url }}">Publication archive</a>
+    </nav>
+    <nav aria-label="About the website">
+      <h2>About the website</h2>
+      <a href="{{ '/about/' | relative_url }}">What is the register?</a>
+      <a href="{{ '/faq/' | relative_url }}">Frequently asked questions</a>
+      <a href="{{ '/sitemap/' | relative_url }}">Site map</a>
+    </nav>
+    <nav aria-label="Write us">
+      <h2>Write us</h2>
+      <a href="{{ '/contact/' | relative_url }}">Enquiries and corrections</a>
+    </nav>
+  </div>
   <p>
     Commissariat of Justice<br>
     Office of First Deputy Commissar<br>
     Section of Legislative Publishing and Administration
   </p>
-
-  <p>Project author · MatworId</p>
+  <p>Project author &middot; MatworId</p>
 </footer>
