@@ -9,20 +9,25 @@ title: Chronological Register
   <input id="search-input"
          type="search"
          aria-label="Search legislation"
-         placeholder="Title, number or keyword">
-
-  <select id="type-filter" aria-label="Document type">
-    <option value="">All instrument types</option>
-  </select>
-
-  <select id="authority-filter" aria-label="Issuing authority">
-    <option value="">All authorities</option>
-  </select>
+         placeholder="Title, subject or number">
+  <button type="submit">Find</button>
 
   <details class="advanced-search">
     <summary>Further particulars</summary>
 
     <div class="advanced-fields">
+      <label>Document type
+  <select id="type-filter" aria-label="Document type">
+    <option value="">All instrument types</option>
+  </select>
+
+      </label>
+      <label>Issuing authority
+  <select id="authority-filter" aria-label="Issuing authority">
+    <option value="">All authorities</option>
+  </select>
+
+      </label>
       <label>
         Search within
         <select id="scope-filter" aria-describedby="scope-help">
@@ -67,10 +72,8 @@ title: Chronological Register
         <input id="published-to" type="date">
       </label>
     </div>
+    <button type="button" id="clear-search">Clear filters</button>
   </details>
-
-  <button type="submit">Find</button>
-  <button type="button" id="clear-search">Clear</button>
 </form>
 
 <p id="search-status" role="status"></p>

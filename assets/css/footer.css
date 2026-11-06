@@ -1,0 +1,24 @@
+.site-footer { margin-top: 12px; padding-top: 32px; border-top: 1px solid var(--line); }
+.footer-sections { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; align-items: start; gap: 36px; padding: 0 0 40px; }
+.footer-sections nav { display: block; margin: 0; }
+.footer-sections h2 { margin: 2px 0 20px; font: 10px/1.5 var(--label-font); font-weight: normal; letter-spacing: .6px; text-transform: uppercase; }
+.footer-sections a { display: block; color: var(--ink); margin-bottom: 12px; text-decoration: none; overflow-wrap: anywhere; }
+.footer-sections a:hover { color: var(--accent); text-decoration: underline; }
+.footer-brand > a { font-size: 26px; line-height: 1.02; letter-spacing: 1px; text-transform: uppercase; }
+.footer-brand > a span { display: block; }
+.footer-brand p { max-width: 24ch; margin: 18px 0 0; color: var(--muted); font-size: 15px; line-height: 1.5; }
+.institution-band { display: flex; justify-content: center; align-items: center; gap: 22px; padding: 26px 32px; background: var(--band, #24231f); color: var(--band-ink, #f4ecd8); }
+.institution-mark { font-size: 24px; letter-spacing: 1px; }
+.institution-details { border-left: 1px solid #756f62; padding-left: 20px; }
+.site-footer .institution-band p { margin: 0; font-size: 14px; line-height: 1.55; color: inherit; }
+.institution-band .institution-authority { font: 9px/1.7 var(--label-font); letter-spacing: .5px; margin-bottom: 8px; }
+.site-footer .project-credit { text-align: center; margin: 16px 0 0; color: var(--muted); font-size: 12px; }
+@media (max-width: 800px) { .footer-sections { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; } }
+@media (max-width: 480px) {
+  .footer-sections { gap: 28px 18px; }
+  .footer-brand > a { font-size: 24px; }
+  .institution-band { gap: 14px; padding: 22px 16px; }
+  .institution-mark { font-size: 20px; }
+  .institution-details { min-width: 0; padding-left: 14px; }
+  .institution-band p { font-size: 13px; overflow-wrap: anywhere; }
+}

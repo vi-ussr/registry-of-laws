@@ -1,7 +1,2 @@
 .information-page { max-width: 800px; margin-inline: auto; overflow-wrap: anywhere; }
 .information-page h3 { margin-top: 32px; font-size: 21px; font-weight: normal; }
-.footer-sections { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
-.footer-sections nav { display: block; }
-.footer-sections h2 { font-size: 14px; margin: 0 0 12px; }
-.footer-sections a { display: block; margin-bottom: 10px; overflow-wrap: anywhere; }
-@media (max-width: 600px) { .footer-sections { grid-template-columns: 1fr; gap: 8px; } }

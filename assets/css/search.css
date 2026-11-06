@@ -77,3 +77,10 @@
     grid-template-columns: 1fr;
   }
 }
+
+#search-input { font: 12px/1.5 var(--label-font); }
+#search-form > button[type="submit"] { background: var(--accent); color: var(--paper); font: 11px/1.5 var(--label-font); }
+.advanced-search summary { text-align: right; list-style-position: inside; font: 11px/1.5 var(--label-font); text-decoration: underline; text-underline-offset: 3px; }
+#search-status { font: 11px/1.6 var(--label-font); }
+
+#search-status:empty { display: none; }

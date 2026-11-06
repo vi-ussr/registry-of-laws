@@ -1,5 +1,7 @@
-<header>
-  <p>{{ site.data.presentation.authority | escape }}</p>
+<header class="site-header">
+  <span class="masthead-star" aria-hidden="true">&#9733;</span>
+  <p class="masthead-authority">{{ site.data.presentation.authority | escape }}</p>
   <h1><a href="{{ '/' | relative_url }}">{{ site.data.presentation.masthead | escape }}</a></h1>
-  <p>{{ site.data.presentation.subtitle | escape }}</p>
+  <p class="masthead-subtitle">{{ site.data.presentation.subtitle | escape }}</p>
+  {% if site.data.presentation.description %}<p class="masthead-description">{{ site.data.presentation.description | escape }}</p>{% endif %}
 </header>

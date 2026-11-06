@@ -1,5 +1,9 @@
-<footer>
+<footer class="site-footer">
   <div class="footer-sections">
+    <div class="footer-brand">
+      <a href="{{ '/' | relative_url }}">{% for line in site.data.presentation.footer_masthead %}<span>{{ line | escape }}</span>{% endfor %}</a>
+      <p>{{ site.data.presentation.footer_description | escape }}</p>
+    </div>
     {% for group in site.data.navigation %}
       <nav aria-label="{{ group.title | escape }}">
         <h2>{{ group.title | escape }}</h2>
@@ -9,6 +13,12 @@
       </nav>
     {% endfor %}
   </div>
-  <p>{% include institution.html %}</p>
-  <p>Project author &middot; {{ site.data.presentation.author | escape }}</p>
+  <div class="institution-band">
+    <span class="institution-mark" aria-hidden="true">&#1057;&#1057;&#1057;&#1056;</span>
+    <div class="institution-details">
+      <p class="institution-authority">{{ site.data.presentation.authority | escape }}</p>
+      <p>{% include institution.html %}</p>
+    </div>
+  </div>
+  <p class="project-credit">Project author &middot; {{ site.data.presentation.author | escape }}</p>
 </footer>

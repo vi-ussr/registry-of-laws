@@ -1,9 +1,15 @@
-/* Default presentation, matching the original printed register. */
+/* Locally hosted fonts keep the register independent of third-party font requests. */
+@font-face { font-family: "Cormorant Garamond"; src: url("../../fonts/cormorant-garamond/regular.ttf") format("truetype"); font-weight: 300 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Cormorant Garamond"; src: url("../../fonts/cormorant-garamond/italic.ttf") format("truetype"); font-weight: 300 700; font-style: italic; font-display: swap; }
 :root {
-  --paper: #f4f1eb;
-  --ink: #25231f;
-  --accent: #8b2923;
-  --line: #bfb5a8;
-  --muted: #6e655b;
-  --body-font: Georgia, "Times New Roman", serif;
+  --paper: #f3f0ea;
+  --ink: #181714;
+  --accent: #c91117;
+  --line: #c9c0b3;
+  --muted: #6d655b;
+  --body-font: "Cormorant Garamond", Georgia, serif;
+  --band: #24231f;
+  --band-ink: #f4ecd8;
 }
+.register-entry h3 a, .subject-index a { color: var(--ink); text-decoration: none; }
+.register-entry h3 a:hover, .subject-index a:hover { color: var(--accent); text-decoration: underline; }

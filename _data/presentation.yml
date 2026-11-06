@@ -9,3 +9,10 @@ institution:
   - "Commissariat of Justice"
   - "Office of First Deputy Commissar"
   - "Section of Legislative Publishing and Administration"
+
+description: "Laws, decrees and resolutions of the Union of Soviet Socialist Republics"
+footer_description: "Central register of laws, decrees and resolutions of the Union."
+
+footer_masthead:
+  - "REGISTER"
+  - "OF LAWS"
