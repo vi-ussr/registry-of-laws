@@ -1,0 +1,9 @@
+/* Presentation overrides only: functional classes and layout remain shared. */
+:root {
+  --paper: #ffffff;
+  --ink: #1c1c1c;
+  --accent: #333333;
+  --line: #a0a0a0;
+  --muted: #555555;
+  --body-font: "Times New Roman", Times, serif;
+}

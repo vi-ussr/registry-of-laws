@@ -1,15 +1,15 @@
 
-{% comment %}
-TODO: Read presentation choices from YAML and select interchangeable theme styles without changing functional hooks.
-{% endcomment %}
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{{ page.title | default: site.title | escape }}</title>
+  <title>{{ page.title | default: site.data.presentation.name | default: site.title | escape }}</title>
+  <meta name="author" content="{{ site.data.presentation.author | escape }}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  {% assign theme = site.data.themes[site.data.presentation.theme] | default: site.data.themes.printed %}
+  <link rel="stylesheet" href="{{ theme.stylesheet | relative_url }}">
 </head>
 <body>
   <div class="page">

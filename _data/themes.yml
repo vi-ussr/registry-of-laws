@@ -1,0 +1,6 @@
+printed:
+  label: Printed register
+  stylesheet: /assets/css/themes/printed.css
+monochrome:
+  label: Monochrome register
+  stylesheet: /assets/css/themes/monochrome.css

@@ -4,7 +4,7 @@ title: What is the register?
 permalink: /about/
 ---
 
-The Register of Laws brings together laws, decrees, resolutions and instructions in one searchable publication. Each document records its number, issuing authority, publication date and effective date.
+The {{ site.data.presentation.name | escape }} brings together laws, decrees, resolutions and instructions in one searchable publication. Each document records its number, issuing authority, publication date and effective date.
 
 ## Finding a document
 
@@ -20,6 +20,6 @@ Publication, commencement and repeal are distinct dates. A preserved text remain
 
 ## Responsibility for publication
 
-Commissariat of Justice, Office of First Deputy Commissar, Section of Legislative Publishing and Administration.
+{{ site.data.presentation.institution | join: ", " | escape }}.
 
-Project author: **MatworId**.
+Project author: **{{ site.data.presentation.author | escape }}**.

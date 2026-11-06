@@ -1,9 +1,5 @@
 <header>
-  <p>PRESIDIUM OF THE SUPREME SOVIET OF THE U.S.S.R.</p>
-
-  <h1>
-    <a href="{{ '/' | relative_url }}">REGISTER OF LAWS</a>
-  </h1>
-
-  <p>СОБРАНИЕ ЗАКОНОВ И УКАЗОВ</p>
+  <p>{{ site.data.presentation.authority | escape }}</p>
+  <h1><a href="{{ '/' | relative_url }}">{{ site.data.presentation.masthead | escape }}</a></h1>
+  <p>{{ site.data.presentation.subtitle | escape }}</p>
 </header>

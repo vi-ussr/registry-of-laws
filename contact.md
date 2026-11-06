@@ -4,7 +4,7 @@ title: Write us
 permalink: /contact/
 ---
 
-Enquiries and corrections are handled by the Commissariat of Justice, Office of First Deputy Commissar, Section of Legislative Publishing and Administration.
+Enquiries and corrections are handled by the {{ site.data.presentation.institution | join: ", " | escape }}.
 
 {% if site.data.contact.email != empty and site.data.contact.email %}
 [Send an email](mailto:{{ site.data.contact.email | escape }})

@@ -1,0 +1,20 @@
+- title: Using the register
+  links:
+    - title: Chronological Register
+      url: /
+    - title: Subject index
+      url: /subjects/
+    - title: Publication archive
+      url: /bulletins/
+- title: About the website
+  links:
+    - title: What is the register?
+      url: /about/
+    - title: Frequently asked questions
+      url: /faq/
+    - title: Site map
+      url: /sitemap/
+- title: Write us
+  links:
+    - title: Enquiries and corrections
+      url: /contact/

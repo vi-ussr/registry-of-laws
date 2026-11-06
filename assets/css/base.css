@@ -3,6 +3,8 @@
   --ink: #25231f;
   --accent: #8b2923;
   --line: #bfb5a8;
+  --muted: #6e655b;
+  --body-font: Georgia, "Times New Roman", serif;
 }
 
 * {
@@ -13,7 +15,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--body-font);
   font-size: 18px;
   line-height: 1.6;
 }

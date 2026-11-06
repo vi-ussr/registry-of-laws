@@ -44,7 +44,7 @@ footer {
 }
 
 footer p:last-child {
-  color: #6e655b;
+  color: var(--muted);
   font-size: 12px;
 }
 

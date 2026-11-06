@@ -1,0 +1,1 @@
+{% for line in site.data.presentation.institution %}{{ line | escape }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}

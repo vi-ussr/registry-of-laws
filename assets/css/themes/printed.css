@@ -1,0 +1,9 @@
+/* Default presentation, matching the original printed register. */
+:root {
+  --paper: #f4f1eb;
+  --ink: #25231f;
+  --accent: #8b2923;
+  --line: #bfb5a8;
+  --muted: #6e655b;
+  --body-font: Georgia, "Times New Roman", serif;
+}

@@ -25,6 +25,7 @@ Dir.mktmpdir("register-version-checks") do |temporary|
   FileUtils.cp(File.join(project, "_layouts", "law-download.html"), File.join(source, "_layouts"))
   FileUtils.mkdir_p(File.join(source, "_includes"))
   FileUtils.cp(File.join(project, "_includes", "law-download.css"), File.join(source, "_includes"))
+  FileUtils.cp(File.join(project, "_includes", "institution.html"), File.join(source, "_includes"))
 
   original = {"document_id" => "fixture", "title" => "Original fixture", "number" => "T1",
               "effective" => "2026-01-10", "repealed" => "2026-03-01", "attachments" => []}

@@ -1,0 +1,11 @@
+# Available themes: printed, monochrome.
+theme: printed
+name: "Register of Laws"
+masthead: "REGISTER OF LAWS"
+authority: "PRESIDIUM OF THE SUPREME SOVIET OF THE U.S.S.R."
+subtitle: "СОБРАНИЕ ЗАКОНОВ И УКАЗОВ"
+author: "MatworId"
+institution:
+  - "Commissariat of Justice"
+  - "Office of First Deputy Commissar"
+  - "Section of Legislative Publishing and Administration"
